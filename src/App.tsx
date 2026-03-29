@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Scissors, 
-  Calendar, 
-  MapPin, 
-  Phone, 
-  Instagram, 
-  Facebook, 
-  Clock, 
+import {
+  Scissors,
+  Calendar,
+  MapPin,
+  Phone,
+  Instagram,
+  Facebook,
+  Clock,
   ChevronRight,
   ChevronLeft,
   Menu,
@@ -36,7 +36,7 @@ const DEFAULT_IMAGES = {
   hero: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1920&auto=format&fit=crop",
   gallery: [
     "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1621605815841-aa88c82b0248?q=80&w=800&auto=format&fit=crop",
+    "https://www.kokorobelleza.com/images/imagenes/003-servicios/corte-de-pelo-hombre-2022/peluqueria-de-hombre-valladolid-tendencia2022-Fade.jpg",
     "https://images.unsplash.com/photo-1599351431247-f13b3828e239?q=80&w=800&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1512690196252-741d2fd36ad2?q=80&w=800&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1634449507606-5704d7013bd2?q=80&w=800&auto=format&fit=crop",
@@ -120,7 +120,7 @@ const BookingModal = ({ isOpen, onClose, service }: { isOpen: boolean, onClose: 
             className="bg-[#1a1a1a] w-full max-w-4xl rounded-3xl overflow-hidden relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               onClick={onClose}
               className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
               aria-label="Cerrar"
@@ -138,8 +138,8 @@ const BookingModal = ({ isOpen, onClose, service }: { isOpen: boolean, onClose: 
             <div className="min-h-[600px] bg-[#1a1a1a]">
               {calendlyUrl ? (
                 <div key={calendlyUrl}>
-                  <InlineWidget 
-                    url={calendlyUrl} 
+                  <InlineWidget
+                    url={calendlyUrl}
                     styles={{ height: '600px', width: '100%' }}
                   />
                 </div>
@@ -150,7 +150,7 @@ const BookingModal = ({ isOpen, onClose, service }: { isOpen: boolean, onClose: 
                   </div>
                   <h4 className="text-xl font-bold text-white mb-2">Reserva Online no disponible</h4>
                   <p className="text-neutral-400 max-w-sm">
-                    Lo sentimos, el servicio de <strong>{service?.name}</strong> aún no está disponible para reserva online. 
+                    Lo sentimos, el servicio de <strong>{service?.name}</strong> aún no está disponible para reserva online.
                     Por favor, llámanos al <span className="text-white">+34 912 345 678</span> para agendar tu cita.
                   </p>
                 </div>
@@ -197,8 +197,8 @@ const Navbar = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
       {/* Desktop Links */}
       <div className="hidden md:flex items-center gap-8">
         {navLinks.map((link) => (
-          <a 
-            key={link.name} 
+          <a
+            key={link.name}
             href={link.href}
             className={cn(
               "text-sm font-medium uppercase tracking-widest hover:opacity-70 transition-opacity",
@@ -208,12 +208,12 @@ const Navbar = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
             {link.name}
           </a>
         ))}
-        <button 
+        <button
           onClick={onGeneralBooking}
           className={cn(
             "px-6 py-2 rounded-full text-sm font-bold transition-all",
-            isScrolled 
-              ? "bg-neutral-900 text-white hover:bg-neutral-800" 
+            isScrolled
+              ? "bg-neutral-900 text-white hover:bg-neutral-800"
               : "bg-white text-neutral-900 hover:bg-neutral-100"
           )}
         >
@@ -222,7 +222,7 @@ const Navbar = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
       </div>
 
       {/* Mobile Menu Toggle */}
-      <button 
+      <button
         className="md:hidden"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
@@ -243,8 +243,8 @@ const Navbar = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
             className="absolute top-full left-0 w-full bg-white shadow-xl p-6 flex flex-col gap-4 md:hidden"
           >
             {navLinks.map((link) => (
-              <a 
-                key={link.name} 
+              <a
+                key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg font-medium text-neutral-900 border-b border-neutral-100 pb-2"
@@ -252,7 +252,7 @@ const Navbar = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
                 {link.name}
               </a>
             ))}
-            <button 
+            <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 onGeneralBooking();
@@ -273,8 +273,8 @@ const Hero = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
     <section id="inicio" data-theme="dark" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <SafeImage 
-          src="/fotos/hero.jpg" 
+        <SafeImage
+          src="/fotos/hero.jpg"
           fallback={DEFAULT_IMAGES.hero}
           alt="Barber Shop Hero"
           className="w-full h-full object-cover"
@@ -296,7 +296,7 @@ const Hero = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
             <span className="italic text-neutral-300">nuestra pasión.</span>
           </h1>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            <button
               onClick={onGeneralBooking}
               className="w-full sm:w-auto px-10 py-4 bg-white text-neutral-900 rounded-full font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2"
             >
@@ -308,7 +308,7 @@ const Hero = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
@@ -321,14 +321,14 @@ const Hero = ({ onGeneralBooking }: { onGeneralBooking: () => void }) => {
   );
 };
 
-const Services = ({ 
-  services, 
-  isLoading, 
-  onSelectService 
-}: { 
-  services: Service[], 
+const Services = ({
+  services,
+  isLoading,
+  onSelectService
+}: {
+  services: Service[],
   isLoading: boolean,
-  onSelectService: (service: Service) => void 
+  onSelectService: (service: Service) => void
 }) => {
   return (
     <section id="servicios" className="pt-24 pb-12 bg-neutral-50 px-6">
@@ -367,7 +367,7 @@ const Services = ({
                   <span className="text-xs text-neutral-400 flex items-center gap-1 uppercase tracking-wider">
                     <Clock className="w-3 h-3" /> {service.duration}
                   </span>
-                  <button 
+                  <button
                     onClick={() => onSelectService(service)}
                     className="text-neutral-900 font-bold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer"
                   >
@@ -404,8 +404,8 @@ const Gallery = () => {
               initial={{ opacity: 0, scale: 0.8, rotate: i % 2 === 0 ? -2 : 2 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               whileHover={{ scale: 1.02, zIndex: 10 }}
-              transition={{ 
-                duration: 0.8, 
+              transition={{
+                duration: 0.8,
                 delay: i * 0.1,
                 ease: [0.21, 0.47, 0.32, 0.98]
               }}
@@ -415,10 +415,10 @@ const Gallery = () => {
                 i % 4 === 0 ? "md:row-span-2" : "md:row-span-1"
               )}
             >
-              <SafeImage 
-                src={img} 
+              <SafeImage
+                src={img}
                 fallback={DEFAULT_IMAGES.gallery[i]}
-                alt={`Gallery ${i + 1}`} 
+                alt={`Gallery ${i + 1}`}
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -452,7 +452,7 @@ const Testimonials = () => {
       <div className="max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3">Reseñas</h2>
         <div className="w-16 h-1 bg-white/20 mx-auto mb-8" />
-        
+
         <div className="relative h-[180px] md:h-[140px]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -465,12 +465,12 @@ const Testimonials = () => {
             >
               <div className="flex justify-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
+                  <Star
+                    key={i}
                     className={cn(
-                      "w-4 h-4", 
+                      "w-4 h-4",
                       i < TESTIMONIALS[index].stars ? "fill-yellow-400 text-yellow-400" : "text-white/20"
-                    )} 
+                    )}
                   />
                 ))}
               </div>
@@ -486,14 +486,14 @@ const Testimonials = () => {
         </div>
 
         <div className="flex items-center justify-center gap-4 mt-8">
-          <button 
+          <button
             onClick={prevTestimonial}
             className="p-1.5 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          
+
           <div className="flex justify-center gap-1.5">
             {TESTIMONIALS.map((_, i) => (
               <button
@@ -507,7 +507,7 @@ const Testimonials = () => {
             ))}
           </div>
 
-          <button 
+          <button
             onClick={nextTestimonial}
             className="p-1.5 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
             aria-label="Siguiente"
@@ -527,13 +527,13 @@ const Location = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Mapa a la izquierda */}
           <div className="w-full h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-neutral-100">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2308.231627867672!2d-5.988591925684116!3d37.36054923591551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c2b211306c9%3A0xb91586f496c44812!2sPeluquer%C3%ADa%20Reina%20Mercedes!5e1!3m2!1ses!2ses!4v1774729914483!5m2!1ses!2ses" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2308.231627867672!2d-5.988591925684116!3d37.36054923591551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c2b211306c9%3A0xb91586f496c44812!2sPeluquer%C3%ADa%20Reina%20Mercedes!5e1!3m2!1ses!2ses!4v1774729914483!5m2!1ses!2ses"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -661,7 +661,7 @@ export default function App() {
       try {
         const response = await fetch(CSV_URL);
         const csvText = await response.text();
-        
+
         Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,
@@ -720,10 +720,10 @@ export default function App() {
       <Navbar onGeneralBooking={handleGeneralBooking} />
       <main>
         <Hero onGeneralBooking={handleGeneralBooking} />
-        <Services 
-          services={services} 
-          isLoading={isLoading} 
-          onSelectService={handleSelectService} 
+        <Services
+          services={services}
+          isLoading={isLoading}
+          onSelectService={handleSelectService}
         />
         <Gallery />
         <Testimonials />
@@ -736,9 +736,9 @@ export default function App() {
         {isScrolled && (
           <motion.div
             initial={{ opacity: 0, scale: 0.5, y: 20, x: '-50%' }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1, 
+            animate={{
+              opacity: 1,
+              scale: 1,
               y: [0, 10, 0],
               x: '-50%'
             }}
@@ -754,7 +754,7 @@ export default function App() {
             }}
             className="fixed bottom-8 left-1/2 z-[60]"
           >
-            <button 
+            <button
               onClick={handleGeneralBooking}
               className="flex items-center gap-3 px-8 py-4 rounded-full font-bold shadow-2xl transition-all duration-500 group bg-neutral-900 text-white hover:bg-neutral-800"
             >
@@ -766,10 +766,10 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <BookingModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        service={selectedService} 
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        service={selectedService}
       />
 
       {/* Elegant Toast Alert */}
@@ -788,7 +788,7 @@ export default function App() {
               <p className="font-bold text-sm">Reserva online no disponible</p>
               <p className="text-xs text-white/60">Llámanos para agendar este servicio.</p>
             </div>
-            <button 
+            <button
               onClick={() => setShowToast(false)}
               className="ml-4 text-white/40 hover:text-white transition-colors"
             >
