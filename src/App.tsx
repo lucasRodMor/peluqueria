@@ -37,10 +37,10 @@ const DEFAULT_IMAGES = {
   gallery: [
     "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
     "https://www.kokorobelleza.com/images/imagenes/003-servicios/corte-de-pelo-hombre-2022/peluqueria-de-hombre-valladolid-tendencia2022-Fade.jpg",
-    "https://images.unsplash.com/photo-1599351431247-f13b3828e239?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512690196252-741d2fd36ad2?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1634449507606-5704d7013bd2?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1593702295094-272a9f01f61e?q=80&w=800&auto=format&fit=crop"
+    "https://www.carloscondepeluqueros.com/wp-content/uploads/2018/11/cabecera.jpg",
+    "https://siropeestilistas.es/wp-content/uploads/2019/12/Cortes-de-cabello-hombre-siroeestilistas-vigo.jpg",
+    "https://media.istockphoto.com/id/1973194125/es/foto/peluquero-que-da-forma-a-las-cejas-del-cliente-del-hombre-usando-la-maquinilla-de-afeitar-en.jpg?s=612x612&w=0&k=20&c=il7pTFcu-UQektvG-TS-_VlKfniY_m4r9zcmIgjRq-U=",
+    "https://www.menzig.style/images/a/1000/1686-h0.jpg"
   ]
 };
 
@@ -397,29 +397,26 @@ const Gallery = () => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px] max-w-6xl mx-auto">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 max-w-6xl mx-auto">
           {GALLERY.map((img, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.8, rotate: i % 2 === 0 ? -2 : 2 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              whileHover={{ scale: 1.02, zIndex: 10 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.02 }}
               transition={{
                 duration: 0.8,
                 delay: i * 0.1,
                 ease: [0.21, 0.47, 0.32, 0.98]
               }}
               viewport={{ once: true, margin: "-50px" }}
-              className={cn(
-                "overflow-hidden rounded-3xl shadow-xl transition-all duration-500 bg-neutral-100",
-                i % 4 === 0 ? "md:row-span-2" : "md:row-span-1"
-              )}
+              className="break-inside-avoid mb-6 overflow-hidden rounded-3xl shadow-xl transition-all duration-500 bg-neutral-100"
             >
               <SafeImage
                 src={img}
                 fallback={DEFAULT_IMAGES.gallery[i]}
                 alt={`Gallery ${i + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto block"
               />
             </motion.div>
           ))}
